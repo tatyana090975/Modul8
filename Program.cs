@@ -27,6 +27,7 @@ namespace Modul8
         {
             public List<string> Files { get; set; } = new List<string>();
         }
+
         Dictionary<string, Folder> Folders = new Dictionary<string, Folder>();
         public void CreateFolder(string name)
         {
