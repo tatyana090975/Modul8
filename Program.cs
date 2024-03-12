@@ -91,6 +91,19 @@ namespace Modul8
         }
         static void GetQuanCatalogs()
         {
+            try
+            {
+                DirectoryInfo dirInfo = new DirectoryInfo(@"C:\\" /* Или С:\\ для Windows */ );
+                if (dirInfo.Exists)
+                {
+                    Console.WriteLine(dirInfo.GetDirectories().Length + dirInfo.GetFiles().Length);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            /*
             string dirName = @"C:\\"; // Прописываем путь к корневой директории MacOS (для Windows скорее всего тут будет "C:\\")
             if (Directory.Exists(dirName)) // Проверим, что директория существует
             {
@@ -104,7 +117,7 @@ namespace Modul8
                 string[] files = Directory.GetFiles(dirName);// Получим все файлы корневого каталога
                 Console.WriteLine(files.Length);
 
-            }
+            }*/
         }
     }
 }
