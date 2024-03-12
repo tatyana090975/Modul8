@@ -55,14 +55,15 @@ namespace Modul8
                     Console.WriteLine($"Свободно: {drive.TotalFreeSpace}");
                     Console.WriteLine($"Метка: {drive.VolumeLabel}");
                 }
-            }
-            Console.ReadKey();*/
+            }*/
+            //Console.ReadKey();
+
             //RootNum("C:\\");
-            //GetCatalogs(@"C:\\");
-            String[] dir = Directory.GetDirectories(@"C:\\");
-            String[] fil = Directory.GetFiles(@"C:\\");
-            int a = (dir.Length + 1) + (fil.Length + 1);
-            Console.WriteLine(a);
+            GetQuanCatalogs();
+            //String[] dir = Directory.GetDirectories(@"C:\\");
+            //String[] fil = Directory.GetFiles(@"C:\\");
+            //int a = (dir.Length + 1) + (fil.Length + 1);
+            //Console.WriteLine(a);
             
             
             
@@ -70,11 +71,12 @@ namespace Modul8
         }
         static void GetCatalogs()
         {
-            string dirName = @"/"; // Прописываем путь к корневой директории MacOS (для Windows скорее всего тут будет "C:\\")
+            string dirName = @"C:\\"; // Прописываем путь к корневой директории MacOS (для Windows скорее всего тут будет "C:\\")
             if (Directory.Exists(dirName)) // Проверим, что директория существует
             {
                 Console.WriteLine("Папки:");
                 string[] dirs = Directory.GetDirectories(dirName);  // Получим все директории корневого каталога
+                Console.WriteLine(dirs.Length);
 
                 foreach (string d in dirs) // Выведем их все
                     Console.WriteLine(d);
@@ -85,6 +87,23 @@ namespace Modul8
 
                 foreach (string s in files)   // Выведем их все
                     Console.WriteLine(s);
+            }
+        }
+        static void GetQuanCatalogs()
+        {
+            string dirName = @"C:\\"; // Прописываем путь к корневой директории MacOS (для Windows скорее всего тут будет "C:\\")
+            if (Directory.Exists(dirName)) // Проверим, что директория существует
+            {
+                Console.WriteLine("Папки:");
+                string[] dirs = Directory.GetDirectories(dirName);  // Получим все директории корневого каталога
+                Console.WriteLine(dirs.Length);
+                              
+
+                Console.WriteLine();
+                Console.WriteLine("Файлы:");
+                string[] files = Directory.GetFiles(dirName);// Получим все файлы корневого каталога
+                Console.WriteLine(files.Length);
+
             }
         }
     }
